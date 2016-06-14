@@ -1,0 +1,32 @@
+{
+  "name": "bourbon-neat-prototype",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run build:js && npm run build:sass && npm run build:pug",
+    "build:js": "browserify src/js/index.js -o dist/js/app.js -t [ babelify --presets [ es2015 ] ]",
+    "build:sass": "node-sass --include-path=node_modules src/sass/style.scss dist/css/style.css",
+    "build:pug": "pug --out dist --pretty src/pug",
+    "watch": "npm run watch:js & npm run watch:sass & npm run watch:pug",
+    "watch:js": "nodemon --watch 'web/src/js' --exec 'npm run build:js'",
+    "watch:sass": "node-sass --include-path=node_modules -w src/sass/style.scss dist/css/style.css",
+    "watch:pug": "pug --out dist --pretty --watch src/pug",
+    "start": "npm run build && serve --path dist & npm run watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.9.0",
+    "babelify": "^7.3.0",
+    "browserify": "^13.0.1",
+    "node-sass": "^3.7.0",
+    "node-serve": "0.0.3",
+    "nodemon": "^1.9.2",
+    "pug-cli": "^1.0.0-alpha6"
+  },
+  "dependencies": {
+    "bourbon": "^4.2.7",
+    "bourbon-neat": "^1.7.4"
+  }
+}
