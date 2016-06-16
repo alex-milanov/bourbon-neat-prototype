@@ -1,0 +1,106 @@
+@import 'bourbon';
+@import 'neat';
+@import 'font-awesome';
+
+@import url(https://fonts.googleapis.com/css?family=Exo+2:900);
+
+@mixin nav-base {
+  height: 50px;
+  line-height: 50px;
+  margin: 0px;
+  display: inline-block;
+  padding: 0px 5px;
+}
+
+i.fa {
+  margin-right: 3px;
+}
+
+.right {
+  float: right;
+}
+
+.left {
+  float: left;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: Helvetica, Arial;
+}
+
+header {
+  @include nav-base;
+  display: block;
+  box-shadow: #333 0px 0px 2px;
+  > *, > * > * {
+    @include nav-base;
+  }
+  .logo {
+    font-family: 'Exo 2', Helvetica, Arial;
+    margin-right: 20px;
+    float: left;
+    font-size: 26px;
+    letter-spacing: -1px;
+    word-spacing: -2px;
+    .fa {
+      @include nav-base;
+      margin-left: 0px;
+      margin-right: 5px;
+      padding: 0px;
+      font-size: 22px;
+    }
+  }
+  ul {
+    float: left;
+    li {
+      font-family: 'Exo 2', Helvetica, Arial;
+      cursor: pointer;
+      &:hover {
+        background: #f7f7f7;
+      }
+    }
+  }
+}
+
+.content {
+  @include outer-container;
+  h1 {
+    margin: 10px 0px 0px 0px;
+    font-family: 'Exo 2', Helvetica, Arial;
+    font-size: 128px;
+    letter-spacing: -5px;
+    word-spacing: -10px;
+    i.fa {
+      margin-left: -20px;
+      margin-right: 10px;
+      font-size: 116px;
+    }
+  }
+  .column-3 {
+    @include span-columns(4);
+    h2 {
+      margin: 0px;
+      padding: 0px;
+      font-family: 'Exo 2', Helvetica, Arial;
+      font-size: 32px;
+      display: inline-block;
+    }
+    p {
+      margin: 0px 0px 20px 0px;
+    }
+    img {
+      width: 40%;
+      margin: 7px;
+      border: 1px solid #aaa;
+      padding: 2px;
+      &.left {
+        margin-left: 0px;
+      }
+      &.right {
+        margin-right: 0px;
+      }
+    }
+  }
+}
